@@ -5,7 +5,10 @@ import About from './components/About.vue'
 import Projects from './components/Projects.vue'
 import Services from './components/Services.vue'
 import Contact from './components/Contact.vue'
+import ScrollToTop from './components/ScrollToTop.vue'
+import { useScrollAnimations } from '@/composables/useScrollAnimations'
 
+const { initScrollAnimations } = useScrollAnimations()
 const isMenuOpen = ref(false)
 
 const toggleMenu = () => {
@@ -17,6 +20,9 @@ const closeMenu = () => {
 }
 
 onMounted(() => {
+  // Initialize scroll animations
+  initScrollAnimations()
+  
   // Close mobile menu when clicking on a link
   const navLinks = document.querySelectorAll('nav a')
   navLinks.forEach(link => {
@@ -83,16 +89,19 @@ onMounted(() => {
       <Contact />
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-neutral-900 dark:bg-neutral-950 text-neutral-300 py-8">
-      <div class="container mx-auto px-4 text-center">
-        <p class="text-sm">
-          © 2024 Irfandy Aziz. All rights reserved. Built with Vue.js and Tailwind CSS.
-        </p>
+        <!-- Footer -->
+        <footer class="bg-neutral-900 dark:bg-neutral-950 text-neutral-300 py-8">
+          <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">
+              © 2024 Irfandy Aziz. All rights reserved. Built with Vue.js and Tailwind CSS.
+            </p>
+          </div>
+        </footer>
+
+        <!-- Scroll to Top Button -->
+        <ScrollToTop />
       </div>
-    </footer>
-  </div>
-</template>
+    </template>
 
 <style scoped>
 .glass {

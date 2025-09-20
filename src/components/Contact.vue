@@ -1,3 +1,20 @@
+<script setup>
+import { onMounted } from 'vue'
+import { useScrollAnimations } from '@/composables/useScrollAnimations'
+
+const { fadeInUp, fadeInLeft, fadeInRight, staggerCards } = useScrollAnimations()
+
+onMounted(() => {
+  // Animate Contact section elements
+  fadeInUp('.contact h2', { delay: 0.2 })
+  fadeInUp('.contact p', { delay: 0.4 })
+  fadeInUp('.contact .w-24', { delay: 0.6 })
+  fadeInLeft('.contact .card', { stagger: 0.2, delay: 0.8 })
+  fadeInRight('.contact .contact-form', { delay: 1.0 })
+  staggerCards('.contact-item', { delay: 1.2 })
+})
+</script>
+
 <template>
   <section id="contact" class="section py-20 bg-white dark:bg-neutral-800">
     <div class="container mx-auto px-4">

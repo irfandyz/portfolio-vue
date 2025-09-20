@@ -1,3 +1,19 @@
+<script setup>
+import { onMounted } from 'vue'
+import { useScrollAnimations } from '@/composables/useScrollAnimations'
+
+const { fadeInUp, staggerCards, scaleIn } = useScrollAnimations()
+
+onMounted(() => {
+  // Animate Services section elements
+  fadeInUp('.services h2', { delay: 0.2 })
+  fadeInUp('.services p', { delay: 0.4 })
+  fadeInUp('.services .w-24', { delay: 0.6 })
+  staggerCards('.service-card', { delay: 0.8 })
+  scaleIn('.service-card', { delay: 1.0 })
+})
+</script>
+
 <template>
   <section id="services" class="section py-20 bg-white dark:bg-neutral-800">
     <div class="container mx-auto px-4">

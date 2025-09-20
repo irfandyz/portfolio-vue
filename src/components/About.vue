@@ -1,3 +1,19 @@
+<script setup>
+import { onMounted } from 'vue'
+import { useScrollAnimations } from '@/composables/useScrollAnimations'
+
+const { fadeInUp, fadeInLeft, fadeInRight, staggerCards } = useScrollAnimations()
+
+onMounted(() => {
+  // Animate About section elements
+  fadeInUp('.about h2', { delay: 0.2 })
+  fadeInLeft('.about .card', { stagger: 0.2, delay: 0.4 })
+  fadeInRight('.about .skills-grid', { delay: 0.6 })
+  staggerCards('.skill-tag', { delay: 0.8 })
+  staggerCards('.experience-item', { delay: 1.0 })
+})
+</script>
+
 <template>
   <section id="about" class="section py-20 bg-neutral-50 dark:bg-neutral-900">
     <div class="container mx-auto px-4">

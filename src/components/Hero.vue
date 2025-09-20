@@ -1,8 +1,10 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { useAnimations } from '@/composables/useAnimations'
+import { useScrollAnimations } from '@/composables/useScrollAnimations'
 
 const { animateHero, animateFloatingShapes } = useAnimations()
+const { initScrollAnimations, floating } = useScrollAnimations()
 const imageLoaded = ref(false)
 const imageError = ref(false)
 
@@ -35,6 +37,10 @@ const handleImageError = (event) => {
 onMounted(() => {
   animateHero()
   animateFloatingShapes()
+  initScrollAnimations()
+  
+  // Floating animation for background shapes
+  floating('.floating-shape')
   
   // Ensure image stays visible after all animations
   setTimeout(() => {
@@ -51,15 +57,15 @@ onMounted(() => {
 
 <template>
   <section id="home" class="hero min-h-screen flex items-center relative overflow-hidden">
-    <!-- Background Elements -->
-    <div class="absolute inset-0 -z-10">
-      <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
-      </div>
-    </div>
+        <!-- Background Elements -->
+        <div class="absolute inset-0 -z-10">
+          <div class="floating-shapes">
+            <div class="shape shape-1 floating-shape"></div>
+            <div class="shape shape-2 floating-shape"></div>
+            <div class="shape shape-3 floating-shape"></div>
+            <div class="shape shape-4 floating-shape"></div>
+          </div>
+        </div>
 
     <div class="container mx-auto px-4 relative z-10">
       <div class="hero-content grid lg:grid-cols-2 gap-12 items-center">
