@@ -80,7 +80,11 @@ export function useAnimations() {
       scale: 0.8,
       opacity: 0,
       duration: 0.8,
-      ease: 'power2.out'
+      ease: 'power2.out',
+      onComplete: () => {
+        // Ensure image stays visible after animation
+        gsap.set('.hero .profile-image', { opacity: 1, visibility: 'visible' })
+      }
     }, '-=0.6')
   }
 

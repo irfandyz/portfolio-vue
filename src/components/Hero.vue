@@ -12,6 +12,17 @@ const imageSrc = '/profile.webp'
 const handleImageLoad = () => {
   imageLoaded.value = true
   console.log('Profile image loaded successfully')
+  
+  // Ensure image stays visible after loading
+  setTimeout(() => {
+    const img = document.querySelector('.profile-image')
+    if (img) {
+      img.style.opacity = '1'
+      img.style.visibility = 'visible'
+      img.style.display = 'block'
+      img.classList.add('animated')
+    }
+  }, 100)
 }
 
 const handleImageError = (event) => {
@@ -24,6 +35,17 @@ const handleImageError = (event) => {
 onMounted(() => {
   animateHero()
   animateFloatingShapes()
+  
+  // Ensure image stays visible after all animations
+  setTimeout(() => {
+    const img = document.querySelector('.profile-image')
+    if (img) {
+      img.style.opacity = '1'
+      img.style.visibility = 'visible'
+      img.style.display = 'block'
+      img.classList.add('animated')
+    }
+  }, 2000) // Wait for GSAP animations to complete
 })
 </script>
 
@@ -102,14 +124,15 @@ onMounted(() => {
         </div>
         
         <!-- Image Content -->
-        <div class="image-container relative animate-slide-up" style="animation-delay: 0.4s">
+        <div class="image-container relative" style="opacity: 1; visibility: visible;">
           <div class="image-wrapper relative">
             <img 
-              class="profile-image w-80 h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary-200 dark:border-primary-800 shadow-2xl animate-float" 
+              class="profile-image w-80 h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary-200 dark:border-primary-800 shadow-2xl" 
               :src="imageSrc" 
               alt="Irfandy Aziz - Fullstack Developer"
               @error="handleImageError"
               @load="handleImageLoad"
+              style="opacity: 1; visibility: visible;"
             />
             <div class="absolute -top-4 -right-4 w-24 h-24 bg-accent-400 rounded-full opacity-20 animate-pulse"></div>
             <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-primary-400 rounded-full opacity-30 animate-pulse" style="animation-delay: 1s"></div>
@@ -212,8 +235,26 @@ onMounted(() => {
   @apply flex items-center;
 }
 
+.image-container {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
 .profile-image {
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Override any GSAP animations that might hide the image */
+.profile-image.animated {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
 }
 
 @media (prefers-color-scheme: dark) {
