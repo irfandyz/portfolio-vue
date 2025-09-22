@@ -157,7 +157,7 @@ onUnmounted(() => {
       <a href="#home" class="brand" @click="closeMenu">
         <div class="logo-container">
           <div class="logo-glow"></div>
-          <img class="brand-avatar" src="/profile.webp" alt="Irfandy Aziz" />
+          <img class="brand-avatar" src="/profile-new.png" alt="Irfandy Aziz" />
           <div class="logo-ring"></div>
         </div>
         <div class="brand-text">
