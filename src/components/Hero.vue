@@ -9,7 +9,7 @@ const imageLoaded = ref(false)
 const imageError = ref(false)
 
 // Use the correct path for Vite
-const imageSrc = '/profile.webp'
+const imageSrc = '/profile-new.webp'
 
 const handleImageLoad = () => {
   imageLoaded.value = true
