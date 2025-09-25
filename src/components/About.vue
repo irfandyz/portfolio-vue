@@ -34,15 +34,10 @@ onMounted(() => {
                 My Story
               </h3>
               <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed mb-4">
-                I'm <strong class="text-primary-600 dark:text-primary-400">Irfandy Aziz</strong>, a passionate 
-                Fullstack Developer with over 3 years of experience in building modern web applications. 
-                I specialize in creating clean, reliable, and scalable solutions that bridge the gap between 
-                design and functionality.
+                I'm <strong class="text-primary-600 dark:text-primary-400">Irfandy Aziz</strong>, a Full-stack Developer expert in leveraging Laravel and Vue.js to build modern, scalable web applications. My primary focus is transforming complex ideas into high-performance digital solutions. I prioritize Clean Code; to me, a solid technical foundation is key to creating projects that are efficient, easily maintainable, and reliable long-term.
               </p>
               <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                My journey in web development began with a curiosity about how websites work, and it has 
-                evolved into a deep passion for creating digital experiences that make a difference. I believe 
-                in writing code that not only works but is also maintainable, performant, and user-friendly.
+                I believe great code must be supported by an outstanding User Experience (UX). My commitment is to consistently deliver an elegant aesthetic with seamless interaction, ensuring the final product is not only fast behind the scenes but also a delight to use. I'm passionate about contributing to projects that expertly balance technical excellence with sophisticated, user-centric design.
               </p>
             </div>
 
@@ -55,48 +50,60 @@ onMounted(() => {
                 <div class="experience-item border-l-4 border-primary-500 pl-4">
                   <div class="flex justify-between items-start mb-2">
                     <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-50">
-                      Senior Fullstack Developer
+                      Internship
                     </h4>
-                    <span class="text-sm text-neutral-500 dark:text-neutral-400">2022 - Present</span>
+                    <span class="text-sm text-neutral-500 dark:text-neutral-400">2019 - 2020</span>
                   </div>
                   <p class="text-sm text-primary-600 dark:text-primary-400 font-medium mb-2">
-                    TechCorp Solutions
+                    CV. Orbit Indonesia Persada
                   </p>
                   <p class="text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed">
-                    Led development of enterprise-level web applications using Vue.js, Node.js, and PostgreSQL. 
-                    Implemented microservices architecture and CI/CD pipelines, resulting in 40% faster deployment times.
+                    Following the implementation of socialization of the results of the application program to clients. The programming language used is Laravel.
                   </p>
                 </div>
 
                 <div class="experience-item border-l-4 border-accent-500 pl-4">
                   <div class="flex justify-between items-start mb-2">
                     <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-50">
-                      Fullstack Developer
+                      Full-stack Developer
                     </h4>
                     <span class="text-sm text-neutral-500 dark:text-neutral-400">2021 - 2022</span>
                   </div>
                   <p class="text-sm text-primary-600 dark:text-primary-400 font-medium mb-2">
-                    Digital Innovations Inc.
+                    PT. Java Genius All Technology
                   </p>
                   <p class="text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed">
-                    Developed responsive web applications and RESTful APIs. Collaborated with cross-functional 
-                    teams to deliver high-quality software solutions on time and within budget.
+                    Results-driven developer with experience building integrated applications across sectors including school operations (tuition, laundry, store, grading, attendance), HR and employee management (payroll, leave, onboarding, performance), cooperative/microfinance, and employee portals. Developed modular, secure, user-centric systems that streamline processes, support scalability, and drive adoption.
                   </p>
                 </div>
 
                 <div class="experience-item border-l-4 border-neutral-400 pl-4">
                   <div class="flex justify-between items-start mb-2">
                     <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-50">
-                      Frontend Developer
+                      Full-stack Developer
                     </h4>
-                    <span class="text-sm text-neutral-500 dark:text-neutral-400">2020 - 2021</span>
+                    <span class="text-sm text-neutral-500 dark:text-neutral-400">2022 - Present</span>
                   </div>
                   <p class="text-sm text-primary-600 dark:text-primary-400 font-medium mb-2">
-                    WebStudio Creative
+                    Rittercoding
                   </p>
                   <p class="text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed">
-                    Created interactive user interfaces using React and Vue.js. Focused on performance optimization 
-                    and accessibility, improving user engagement by 25%.
+                    I have extensive experience as a backend developer, where I predominantly utilized PHP in conjunction with the Laravel framework.
+                  </p>
+                </div>
+
+                <div class="experience-item border-l-4 border-neutral-400 pl-4">
+                  <div class="flex justify-between items-start mb-2">
+                    <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-50">
+                      Internship - IT Engineer
+                    </h4>
+                    <span class="text-sm text-neutral-500 dark:text-neutral-400">August 2025 - November 2025</span>
+                  </div>
+                  <p class="text-sm text-primary-600 dark:text-primary-400 font-medium mb-2">
+                    PT. Uniteda Arkato
+                  </p>
+                  <p class="text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed">
+                    Saya membantu membuatkan aplikasi untuk operasional perusahaan yang dinamakan TMS (Transport Management System), dan men support kebutuhan it untuk pengembangan aplikasi.
                   </p>
                 </div>
               </div>
@@ -122,14 +129,12 @@ onMounted(() => {
                 <div class="flex flex-wrap gap-2">
                   <span class="skill-tag">Vue.js</span>
                   <span class="skill-tag">React</span>
-                  <span class="skill-tag">TypeScript</span>
+                  <span class="skill-tag">Flutter</span>
                   <span class="skill-tag">JavaScript</span>
                   <span class="skill-tag">HTML5</span>
                   <span class="skill-tag">CSS3</span>
                   <span class="skill-tag">Tailwind CSS</span>
-                  <span class="skill-tag">Sass/SCSS</span>
                   <span class="skill-tag">Vite</span>
-                  <span class="skill-tag">Webpack</span>
                 </div>
               </div>
 
@@ -144,13 +149,10 @@ onMounted(() => {
                 <div class="flex flex-wrap gap-2">
                   <span class="skill-tag">Node.js</span>
                   <span class="skill-tag">Express.js</span>
-                  <span class="skill-tag">NestJS</span>
-                  <span class="skill-tag">Python</span>
-                  <span class="skill-tag">Django</span>
-                  <span class="skill-tag">FastAPI</span>
                   <span class="skill-tag">REST APIs</span>
-                  <span class="skill-tag">GraphQL</span>
-                  <span class="skill-tag">Microservices</span>
+                  <span class="skill-tag">Laravel</span>
+                  <span class="skill-tag">CodeIgniter</span>
+                  <span class="skill-tag">PHP</span>
                 </div>
               </div>
 
@@ -163,14 +165,10 @@ onMounted(() => {
                   Database & Tools
                 </h4>
                 <div class="flex flex-wrap gap-2">
-                  <span class="skill-tag">PostgreSQL</span>
                   <span class="skill-tag">MySQL</span>
-                  <span class="skill-tag">MongoDB</span>
-                  <span class="skill-tag">Redis</span>
-                  <span class="skill-tag">Docker</span>
-                  <span class="skill-tag">AWS</span>
                   <span class="skill-tag">Git</span>
-                  <span class="skill-tag">CI/CD</span>
+                  <span class="skill-tag">GitHub</span>
+                  <span class="skill-tag">VPS</span>
                   <span class="skill-tag">Linux</span>
                 </div>
               </div>

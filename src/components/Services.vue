@@ -50,9 +50,6 @@ onMounted(() => {
               <li>Performance Optimization</li>
               <li>Cross-browser Compatibility</li>
             </ul>
-            <div class="service-price">
-              <span class="price">Starting at $500</span>
-            </div>
           </div>
 
           <!-- E-commerce Solutions -->
@@ -73,9 +70,6 @@ onMounted(() => {
               <li>Inventory Management</li>
               <li>Order Processing System</li>
             </ul>
-            <div class="service-price">
-              <span class="price">Starting at $1,200</span>
-            </div>
           </div>
 
           <!-- API Development -->
@@ -96,9 +90,6 @@ onMounted(() => {
               <li>API Documentation</li>
               <li>Authentication & Security</li>
             </ul>
-            <div class="service-price">
-              <span class="price">Starting at $800</span>
-            </div>
           </div>
 
           <!-- Database Design -->
@@ -119,9 +110,6 @@ onMounted(() => {
               <li>Data Migration</li>
               <li>Performance Tuning</li>
             </ul>
-            <div class="service-price">
-              <span class="price">Starting at $600</span>
-            </div>
           </div>
 
           <!-- Maintenance & Support -->
@@ -142,9 +130,6 @@ onMounted(() => {
               <li>Security Patches</li>
               <li>24/7 Support</li>
             </ul>
-            <div class="service-price">
-              <span class="price">Starting at $200/month</span>
-            </div>
           </div>
 
           <!-- Consultation -->
@@ -165,9 +150,6 @@ onMounted(() => {
               <li>Code Review</li>
               <li>Project Planning</li>
             </ul>
-            <div class="service-price">
-              <span class="price">$100/hour</span>
-            </div>
           </div>
         </div>
 

@@ -55,7 +55,7 @@ onMounted(() => {
                   <div class="contact-details">
                     <h4 class="contact-title">Email</h4>
                     <a href="mailto:irfandy.aziz.dev@gmail.com" class="contact-link">
-                      irfandy.aziz.dev@gmail.com
+                      irfandyzize@gmail.com
                     </a>
                     <p class="contact-description">Send me an email and I'll respond within 24 hours</p>
                   </div>
@@ -71,7 +71,7 @@ onMounted(() => {
                   <div class="contact-details">
                     <h4 class="contact-title">WhatsApp</h4>
                     <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="contact-link">
-                      +62 812-3456-7890
+                      +62 896-8718-6597
                     </a>
                     <p class="contact-description">Quick chat for urgent matters or casual discussion</p>
                   </div>
@@ -103,7 +103,7 @@ onMounted(() => {
                   <div class="contact-details">
                     <h4 class="contact-title">GitHub</h4>
                     <a href="https://github.com/irfandy" target="_blank" rel="noopener" class="contact-link">
-                      github.com/irfandy
+                      github.com/irfandyz
                     </a>
                     <p class="contact-description">Check out my code and open source contributions</p>
                   </div>
@@ -119,7 +119,7 @@ onMounted(() => {
                   <div class="contact-details">
                     <h4 class="contact-title">Instagram</h4>
                     <a href="https://instagram.com/irfandy.aziz" target="_blank" rel="noopener" class="contact-link">
-                      @irfandy.aziz
+                      @iruu.diy
                     </a>
                     <p class="contact-description">Follow my journey and behind-the-scenes content</p>
                   </div>
@@ -223,7 +223,7 @@ onMounted(() => {
           </h3>
           <div class="flex justify-center gap-6">
             <a
-              href="https://github.com/irfandy"
+              href="https://github.com/irfandyz"
               target="_blank"
               rel="noopener"
               class="social-link group"
@@ -243,7 +243,7 @@ onMounted(() => {
               </svg>
             </a>
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6289687186597"
               target="_blank"
               rel="noopener"
               class="social-link group"
@@ -253,7 +253,7 @@ onMounted(() => {
               </svg>
             </a>
             <a
-              href="https://instagram.com/irfandy.aziz"
+              href="https://instagram.com/iruu.diy"
               target="_blank"
               rel="noopener"
               class="social-link group"
