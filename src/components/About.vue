@@ -50,7 +50,7 @@ onMounted(() => {
                 <div class="experience-item border-l-4 border-primary-500 pl-4">
                   <div class="flex justify-between items-start mb-2">
                     <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-50">
-                      Internship
+                      Internship - Junior Web Developer
                     </h4>
                     <span class="text-sm text-neutral-500 dark:text-neutral-400">2019 - 2020</span>
                   </div>
@@ -92,7 +92,7 @@ onMounted(() => {
                   </p>
                 </div>
 
-                <div class="experience-item border-l-4 border-neutral-400 pl-4">
+                <div class="experience-item border-l-4 border-red-500 pl-4">
                   <div class="flex justify-between items-start mb-2">
                     <h4 class="text-lg font-semibold text-neutral-900 dark:text-neutral-50">
                       Internship - IT Engineer
