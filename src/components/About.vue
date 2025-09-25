@@ -5,12 +5,12 @@ import { useScrollAnimations } from '@/composables/useScrollAnimations'
 const { fadeInUp, fadeInLeft, fadeInRight, staggerCards } = useScrollAnimations()
 
 onMounted(() => {
-  // Animate About section elements
-  fadeInUp('.about h2', { delay: 0.2 })
-  fadeInLeft('.about .card', { stagger: 0.2, delay: 0.4 })
-  fadeInRight('.about .skills-grid', { delay: 0.6 })
-  staggerCards('.skill-tag', { delay: 0.8 })
-  staggerCards('.experience-item', { delay: 1.0 })
+  // Animations disabled for better performance
+  // fadeInUp('.about h2', { delay: 0.2 })
+  // fadeInLeft('.about .card', { stagger: 0.2, delay: 0.4 })
+  // fadeInRight('.about .skills-grid', { delay: 0.6 })
+  // staggerCards('.skill-tag', { delay: 0.8 })
+  // staggerCards('.experience-item', { delay: 1.0 })
 })
 </script>
 
@@ -103,7 +103,7 @@ onMounted(() => {
                     PT. Uniteda Arkato
                   </p>
                   <p class="text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed">
-                    Saya membantu membuatkan aplikasi untuk operasional perusahaan yang dinamakan TMS (Transport Management System), dan men support kebutuhan it untuk pengembangan aplikasi.
+                    I helped develop an application for company operations called TMS (Transport Management System), and provided IT support for application development needs.
                   </p>
                 </div>
               </div>

@@ -1,10 +1,10 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 @import './base.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 #app { 
   font-weight: normal; 
@@ -58,10 +58,11 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-/* Smooth transitions */
+/* Smooth transitions - disabled for navbar */
 * {
   transition: all 0.3s ease;
 }
+
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {

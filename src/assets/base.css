@@ -33,6 +33,10 @@
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
 
+  /* Primary and accent colors for navbar */
+  --color-primary: #0369a1;
+  --color-accent: #eab308;
+
   --section-gap: 160px;
 }
 

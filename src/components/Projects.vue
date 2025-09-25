@@ -26,12 +26,12 @@ const closeProjectModal = () => {
 }
 
 onMounted(() => {
-  // Animate Projects section elements
-  fadeInUp('.projects h2', { delay: 0.2 })
-  fadeInUp('.projects p', { delay: 0.4 })
-  fadeInUp('.projects .w-24', { delay: 0.6 })
-  staggerCards('.project-card', { delay: 0.8 })
-  scaleIn('.project-modal', { delay: 0.2 })
+  // Animations disabled for better performance
+  // fadeInUp('.projects h2', { delay: 0.2 })
+  // fadeInUp('.projects p', { delay: 0.4 })
+  // fadeInUp('.projects .w-24', { delay: 0.6 })
+  // staggerCards('.project-card', { delay: 0.8 })
+  // scaleIn('.project-modal', { delay: 0.2 })
 })
 </script>
 
