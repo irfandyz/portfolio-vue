@@ -6,7 +6,7 @@ import About from './components/About.vue'
 import Projects from './components/Projects.vue'
 import Services from './components/Services.vue'
 import Contact from './components/Contact.vue'
-import ScrollToTop from './components/ScrollToTop.vue'
+// ScrollToTop removed
 
 </script>
 
@@ -33,8 +33,7 @@ import ScrollToTop from './components/ScrollToTop.vue'
           </div>
         </footer>
 
-        <!-- Scroll to Top Button -->
-        <ScrollToTop />
+        
       </div>
     </template>
 

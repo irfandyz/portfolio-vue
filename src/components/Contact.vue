@@ -118,7 +118,7 @@ onMounted(() => {
                   </div>
                   <div class="contact-details">
                     <h4 class="contact-title">Instagram</h4>
-                    <a href="https://instagram.com/irfandy.aziz" target="_blank" rel="noopener" class="contact-link">
+                    <a href="https://instagram.com/iruu.diy" target="_blank" rel="noopener" class="contact-link">
                       @iruu.diy
                     </a>
                     <p class="contact-description">Follow my journey and behind-the-scenes content</p>

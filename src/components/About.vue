@@ -176,25 +176,97 @@ onMounted(() => {
 
             <!-- Soft Skills -->
             <div class="card">
-              <h3 class="text-2xl font-serif font-semibold text-neutral-900 dark:text-neutral-50 mb-6">
-                Soft Skills
-              </h3>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="text-center p-4 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
-                  <div class="text-2xl mb-2">🤝</div>
-                  <h4 class="font-semibold text-neutral-900 dark:text-neutral-50">Team Collaboration</h4>
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center mr-4">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
                 </div>
-                <div class="text-center p-4 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
-                  <div class="text-2xl mb-2">💡</div>
-                  <h4 class="font-semibold text-neutral-900 dark:text-neutral-50">Problem Solving</h4>
+                <div>
+                  <h3 class="text-2xl font-serif font-semibold text-neutral-900 dark:text-neutral-50">
+                    Soft Skills
+                  </h3>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">Personal attributes that enhance my professional effectiveness</p>
                 </div>
-                <div class="text-center p-4 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
-                  <div class="text-2xl mb-2">📚</div>
-                  <h4 class="font-semibold text-neutral-900 dark:text-neutral-50">Continuous Learning</h4>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Team Collaboration -->
+                <div class="soft-skill-card group">
+                  <div class="skill-icon">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                  <div class="skill-content">
+                    <h4 class="skill-title">Team Collaboration</h4>
+                    <p class="skill-description">Effective communication and teamwork in cross-functional environments</p>
+                  </div>
                 </div>
-                <div class="text-center p-4 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
-                  <div class="text-2xl mb-2">⏰</div>
-                  <h4 class="font-semibold text-neutral-900 dark:text-neutral-50">Time Management</h4>
+
+                <!-- Problem Solving -->
+                <div class="soft-skill-card group">
+                  <div class="skill-icon">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                  </div>
+                  <div class="skill-content">
+                    <h4 class="skill-title">Problem Solving</h4>
+                    <p class="skill-description">Analytical thinking and creative solutions to complex challenges</p>
+                  </div>
+                </div>
+
+                <!-- Continuous Learning -->
+                <div class="soft-skill-card group">
+                  <div class="skill-icon">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                  </div>
+                  <div class="skill-content">
+                    <h4 class="skill-title">Continuous Learning</h4>
+                    <p class="skill-description">Adaptability and eagerness to master new technologies</p>
+                  </div>
+                </div>
+
+                <!-- Time Management -->
+                <div class="soft-skill-card group">
+                  <div class="skill-icon">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  </div>
+                  <div class="skill-content">
+                    <h4 class="skill-title">Time Management</h4>
+                    <p class="skill-description">Efficient project planning and deadline adherence</p>
+                  </div>
+                </div>
+
+                <!-- Communication -->
+                <div class="soft-skill-card group">
+                  <div class="skill-icon">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
+                  </div>
+                  <div class="skill-content">
+                    <h4 class="skill-title">Communication</h4>
+                    <p class="skill-description">Clear and effective verbal and written communication</p>
+                  </div>
+                </div>
+
+                <!-- Leadership -->
+                <div class="soft-skill-card group">
+                  <div class="skill-icon">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                  </div>
+                  <div class="skill-content">
+                    <h4 class="skill-title">Leadership</h4>
+                    <p class="skill-description">Guiding teams and mentoring junior developers</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -249,6 +321,45 @@ onMounted(() => {
 .card {
   @apply bg-white dark:bg-neutral-800 shadow-lg rounded-xl p-6 border border-neutral-200 dark:border-neutral-700;
 }
+
+/* Soft Skills Styling */
+.soft-skill-card {
+  @apply relative p-4 bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-800 dark:to-neutral-700 rounded-xl border border-neutral-200 dark:border-neutral-600 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-primary-300 dark:hover:border-primary-500;
+}
+
+.soft-skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0369a1, #eab308);
+  border-radius: 6px 6px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.soft-skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-icon {
+  @apply w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center text-white mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3;
+}
+
+.skill-content {
+  @apply space-y-3;
+}
+
+.skill-title {
+  @apply text-lg font-semibold text-neutral-900 dark:text-neutral-50 transition-colors duration-300 group-hover:text-primary-600 dark:group-hover:text-primary-400;
+}
+
+.skill-description {
+  @apply text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed;
+}
+
 
 /* Animation classes */
 .animate-fade-in {
