@@ -5,17 +5,16 @@ import { useScrollAnimations } from '@/composables/useScrollAnimations'
 const { fadeInUp, staggerCards, scaleIn } = useScrollAnimations()
 
 onMounted(() => {
-  // Animations disabled for better performance
-  // fadeInUp('.services h2', { delay: 0.2 })
-  // fadeInUp('.services p', { delay: 0.4 })
-  // fadeInUp('.services .w-24', { delay: 0.6 })
-  // staggerCards('.service-card', { delay: 0.8 })
-  // scaleIn('.service-card', { delay: 1.0 })
+  // Animasi scroll ringan untuk section Services
+  fadeInUp('.services h2', { delay: 0.15 })
+  fadeInUp('.services p', { delay: 0.25 })
+  fadeInUp('.services .w-24', { delay: 0.35 })
+  staggerCards('.service-card', { delay: 0.3, stagger: 0.12 })
 })
 </script>
 
 <template>
-  <section id="services" class="section py-20 bg-white dark:bg-neutral-800">
+  <section id="services" class="section services py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <!-- Section Header -->
@@ -216,12 +215,39 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.services {
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+}
+
 .service-card {
-  @apply bg-white dark:bg-neutral-800 rounded-xl p-8 shadow-lg border border-neutral-200 dark:border-neutral-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+  @apply rounded-2xl p-8 border border-neutral-200/70 dark:border-neutral-700/70 transition-all duration-300 relative overflow-hidden;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.14), transparent 60%),
+    linear-gradient(145deg, rgba(248, 250, 252, 0.98), rgba(229, 231, 235, 0.98));
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.3),
+    0 0 0 1px rgba(148, 163, 184, 0.35);
+}
+
+@media (prefers-color-scheme: dark) {
+  .service-card {
+    background:
+      radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.42), transparent 60%),
+      linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 1));
+    box-shadow:
+      0 24px 64px rgba(0, 0, 0, 0.78),
+      0 0 0 1px rgba(30, 64, 175, 0.6);
+  }
 }
 
 .service-card:hover {
   @apply border-primary-300 dark:border-primary-600;
+  transform: translateY(-6px);
+  box-shadow:
+    0 28px 70px rgba(15, 23, 42, 0.5),
+    0 8px 0 rgba(37, 99, 235, 0.75);
 }
 
 .service-icon {
@@ -258,7 +284,24 @@ onMounted(() => {
 }
 
 .process-section {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-12;
+  @apply rounded-2xl p-12 border border-neutral-200/70 dark:border-neutral-700/70;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.16), transparent 60%),
+    linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(229, 231, 235, 0.98));
+  box-shadow:
+    0 22px 55px rgba(15, 23, 42, 0.32),
+    0 0 0 1px rgba(148, 163, 184, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  .process-section {
+    background:
+      radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.42), transparent 60%),
+      linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 1));
+    box-shadow:
+      0 26px 70px rgba(0, 0, 0, 0.85),
+      0 0 0 1px rgba(30, 64, 175, 0.6);
+  }
 }
 
 .process-step {

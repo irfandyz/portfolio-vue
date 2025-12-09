@@ -26,17 +26,16 @@ const closeProjectModal = () => {
 }
 
 onMounted(() => {
-  // Animations disabled for better performance
-  // fadeInUp('.projects h2', { delay: 0.2 })
-  // fadeInUp('.projects p', { delay: 0.4 })
-  // fadeInUp('.projects .w-24', { delay: 0.6 })
-  // staggerCards('.project-card', { delay: 0.8 })
-  // scaleIn('.project-modal', { delay: 0.2 })
+  // Animasi scroll ringan untuk section Projects
+  fadeInUp('.projects h2', { delay: 0.15 })
+  fadeInUp('.projects p', { delay: 0.25 })
+  fadeInUp('.projects .w-24', { delay: 0.35 })
+  staggerCards('.project-card', { delay: 0.3, stagger: 0.12 })
 })
 </script>
 
 <template>
-  <section id="projects" class="section py-20 bg-neutral-50 dark:bg-neutral-900">
+  <section id="projects" class="section projects py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-7xl mx-auto">
         <!-- Section Header -->
@@ -118,21 +117,7 @@ onMounted(() => {
                 </span>
               </div>
               
-              <div class="project-links">
-                <a
-                  v-if="project.liveUrl"
-                  :href="project.liveUrl"
-                  target="_blank"
-                  rel="noopener"
-                  class="project-link"
-                  @click.stop
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                  Live Demo
-                </a>  
-              </div>
+              <div class="project-links"></div>
             </div>
           </div>
         </div>
@@ -229,18 +214,6 @@ onMounted(() => {
           <!-- Project Links -->
           <div class="flex flex-wrap gap-3 mt-8 pt-6 border-t border-neutral-200 dark:border-neutral-700">
             <a
-              v-if="selectedProject.liveUrl"
-              :href="selectedProject.liveUrl"
-              target="_blank"
-              rel="noopener"
-              class="btn-primary"
-            >
-              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-              </svg>
-              View Live Demo
-            </a>
-            <a
               v-if="selectedProject.githubUrl"
               :href="selectedProject.githubUrl"
               target="_blank"
@@ -260,8 +233,31 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.projects {
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+}
+
 .project-card {
-  @apply bg-white dark:bg-neutral-800 rounded-xl shadow-lg border border-neutral-200 dark:border-neutral-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+  @apply rounded-2xl overflow-hidden transition-all duration-300 relative;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.12), transparent 60%),
+    linear-gradient(145deg, rgba(248, 250, 252, 0.98), rgba(229, 231, 235, 0.98));
+  box-shadow:
+    0 20px 52px rgba(15, 23, 42, 0.34),
+    0 0 0 1px rgba(148, 163, 184, 0.35);
+}
+
+@media (prefers-color-scheme: dark) {
+  .project-card {
+    background:
+      radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.38), transparent 60%),
+      linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 1));
+    box-shadow:
+      0 24px 64px rgba(0, 0, 0, 0.75),
+      0 0 0 1px rgba(30, 64, 175, 0.6);
+  }
 }
 
 .project-image {
@@ -293,7 +289,7 @@ onMounted(() => {
 }
 
 .project-content {
-  @apply p-6;
+  @apply p-6 relative;
 }
 
 .project-header {

@@ -15,7 +15,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="about" class="section py-20 bg-neutral-50 dark:bg-neutral-900">
+  <section id="about" class="section about py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <!-- Section Header -->
@@ -292,6 +292,12 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.about {
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+}
+
 .skill-tag {
   @apply px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-sm font-medium rounded-full border border-primary-200 dark:border-primary-700;
 }
@@ -319,12 +325,55 @@ onMounted(() => {
 }
 
 .card {
-  @apply bg-white dark:bg-neutral-800 shadow-lg rounded-xl p-6 border border-neutral-200 dark:border-neutral-700;
+  @apply rounded-2xl p-6 border border-neutral-200/70 dark:border-neutral-700/70 relative overflow-hidden;
+  background: radial-gradient(circle at 0% 0%, rgba(248, 250, 252, 0.9), rgba(226, 232, 240, 0.98));
+  box-shadow:
+    0 22px 55px rgba(15, 23, 42, 0.32),
+    0 0 0 1px rgba(148, 163, 184, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background: radial-gradient(circle at 0% 0%, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 1));
+    box-shadow:
+      0 26px 70px rgba(15, 23, 42, 0.9),
+      0 0 0 1px rgba(30, 64, 175, 0.45);
+  }
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.22), transparent 55%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.55),
+    0 10px 0 rgba(37, 99, 235, 0.7);
+  border-color: rgba(59, 130, 246, 0.45);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 /* Soft Skills Styling */
 .soft-skill-card {
-  @apply relative p-4 bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-800 dark:to-neutral-700 rounded-xl border border-neutral-200 dark:border-neutral-600 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-primary-300 dark:hover:border-primary-500;
+  @apply relative p-4 rounded-xl border border-transparent transition-all duration-300;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.16), transparent 65%),
+    linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(229, 231, 235, 0.98));
+  box-shadow:
+    0 16px 40px rgba(15, 23, 42, 0.22),
+    0 0 0 1px rgba(148, 163, 184, 0.35);
 }
 
 .soft-skill-card::before {
@@ -342,6 +391,17 @@ onMounted(() => {
 
 .soft-skill-card:hover::before {
   opacity: 1;
+  }
+
+@media (prefers-color-scheme: dark) {
+  .soft-skill-card {
+    background:
+      radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.35), transparent 65%),
+      linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 1));
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.75),
+      0 0 0 1px rgba(30, 64, 175, 0.55);
+  }
 }
 
 .skill-icon {

@@ -1,12 +1,16 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import { useAnimations } from '@/composables/useAnimations'
 import { useScrollAnimations } from '@/composables/useScrollAnimations'
 
 const { animateHero, animateFloatingShapes } = useAnimations()
-const { initScrollAnimations, floating } = useScrollAnimations()
+const { initScrollAnimations, floating, magnetic } = useScrollAnimations()
 const imageLoaded = ref(false)
 const imageError = ref(false)
+
+// tilt state untuk efek 3D pada kartu foto
+const tiltX = ref(0)
+const tiltY = ref(0)
 
 // Use the correct path for Vite
 const imageSrc = '/profile-new.png'
@@ -34,15 +38,54 @@ const handleImageError = (event) => {
   event.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgdmlld0JveD0iMCAwIDMyMCAzMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iMzIwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTAwIiBmaWxsPSIjRTVFN0VCIi8+CjxjaXJjbGUgY3g9IjE2MCIgY3k9IjEzMCIgcj0iNDAiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTEwMCAyMDBDMTAwIDE2NS4zIDEyNS4zIDE0MCAxNjAgMTQwQzE5NC43IDE0MCAyMjAgMTY1LjMgMjIwIDIwMEwyMDAgMjAwTDE2MCAyMDBMMTAwIDIwMFoiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+'
 }
 
+// gaya transform untuk tilt 3D
+const tiltStyle = computed(() => {
+  const maxTilt = 10
+  // clamp nilai supaya tidak ekstrem
+  const clamp = (value, min, max) => Math.min(Math.max(value, min), max)
+
+  const x = clamp(tiltX.value, -maxTilt, maxTilt)
+  const y = clamp(tiltY.value, -maxTilt, maxTilt)
+
+  return {
+    transform: `rotateX(${x}deg) rotateY(${y}deg) translateZ(0)`,
+    transformStyle: 'preserve-3d'
+  }
+})
+
+const handleTiltMove = (event) => {
+  const target = event.currentTarget
+  if (!target) return
+
+  const rect = target.getBoundingClientRect()
+  const centerX = rect.left + rect.width / 2
+  const centerY = rect.top + rect.height / 2
+
+  const offsetX = event.clientX - centerX
+  const offsetY = event.clientY - centerY
+
+  const maxTilt = 14
+
+  tiltY.value = (offsetX / (rect.width / 2)) * maxTilt
+  tiltX.value = -(offsetY / (rect.height / 2)) * maxTilt
+}
+
+const resetTilt = () => {
+  tiltX.value = 0
+  tiltY.value = 0
+}
+
 onMounted(() => {
-  // Disable complex animations - keep only simple ones
-  // animateHero()
-  // animateFloatingShapes()
-  // initScrollAnimations()
-  
-  // Floating animation for background shapes - disabled
-  // floating('.floating-shape')
-  
+  // Animasi hero sinematik saat load
+  animateHero()
+
+  // Floating animation halus untuk background shapes
+  floating('.shape-1', { y: 18, duration: 4 })
+  floating('.shape-2', { y: 26, duration: 5 })
+
+  // Efek magnetic untuk CTA utama (rasa 3D interaktif)
+  magnetic('.hero .btn-primary')
+
   // Ensure image stays visible
   const img = document.querySelector('.profile-image')
   if (img) {
@@ -68,7 +111,12 @@ onMounted(() => {
       <div class="hero-content grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <!-- Image Content - Mobile First -->
         <div class="image-container relative order-1 lg:order-2" style="opacity: 1; visibility: visible;">
-          <div class="image-wrapper relative">
+          <div
+            class="image-wrapper relative tilt-card"
+            @mousemove="handleTiltMove"
+            @mouseleave="resetTilt"
+            :style="tiltStyle"
+          >
             <img 
               class="profile-image w-64 h-64 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary-200 dark:border-primary-800 shadow-2xl mx-auto lg:mx-0" 
               :src="imageSrc" 
@@ -77,6 +125,8 @@ onMounted(() => {
               @load="handleImageLoad"
               style="opacity: 1; visibility: visible;"
             />
+            <div class="orbit-ring orbit-ring-outer"></div>
+            <div class="orbit-ring orbit-ring-inner"></div>
             <div class="absolute -top-4 -right-4 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-accent-400 rounded-full opacity-20"></div>
             <div class="absolute -bottom-4 -left-4 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-primary-400 rounded-full opacity-30"></div>
           </div>
@@ -89,20 +139,20 @@ onMounted(() => {
           </div>
           
           <h1 class="main-title text-6xl lg:text-7xl font-serif font-bold leading-tight">
-            <span class="block text-gray-900 dark:text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">Irfandy</span>
-            <span class="block text-gray-900 dark:text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">Aziz</span>
+            <span class="block hero-name">Irfandy</span>
+            <span class="block hero-name">Aziz</span>
           </h1>
           
           <div class="role-container">
-            <h2 class="role text-2xl lg:text-3xl font-medium text-primary-600 dark:text-primary-400 mb-4">
+            <h2 class="role text-2xl lg:text-3xl font-semibold text-primary-700 dark:text-primary-300 mb-4 drop-shadow-md">
               Fullstack Developer
             </h2>
-            <div class="typing-animation text-xl text-neutral-700 dark:text-neutral-300">
+            <div class="typing-animation text-xl text-slate-800 dark:text-slate-200 drop-shadow-sm">
               <span class="typing-text">Crafting elegant, performant web applications</span>
             </div>
           </div>
           
-          <p class="description text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl leading-relaxed">
+          <p class="description text-lg text-neutral-800 dark:text-neutral-200 max-w-2xl leading-relaxed drop-shadow-sm">
             I specialize in building scalable, maintainable web applications using modern technologies. 
             With expertise in both frontend and backend development, I bring ideas to life with clean code and beautiful design.
           </p>
@@ -148,13 +198,7 @@ onMounted(() => {
 
 <style scoped>
 .hero {
-  background: linear-gradient(135deg, var(--color-neutral-50) 0%, var(--color-neutral-100) 100%);
-}
-
-@media (prefers-color-scheme: dark) {
-  .hero {
-    background: linear-gradient(135deg, var(--color-neutral-900) 0%, var(--color-neutral-800) 100%);
-  }
+  background: transparent;
 }
 
 .floating-shapes {
@@ -168,8 +212,8 @@ onMounted(() => {
   position: absolute;
   border-radius: 50%;
   background: linear-gradient(45deg, var(--color-primary), var(--color-accent));
-  opacity: 0.05;
-  /* Animation disabled for better performance */
+  opacity: 0.12;
+  filter: blur(32px);
 }
 
 .shape-1 {
@@ -186,13 +230,19 @@ onMounted(() => {
   right: 15%;
 }
 
-.main-title {
-  color: var(--color-neutral-900);
+.hero-name {
+  color: #0f172a;
+  text-shadow:
+    0 3px 10px rgba(15, 23, 42, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
-  .main-title {
-    color: var(--color-neutral-50);
+  .hero-name {
+    color: #f8fafc;
+    text-shadow:
+      0 4px 14px rgba(0, 0, 0, 0.55),
+      0 1px 0 rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -208,6 +258,72 @@ onMounted(() => {
 
 .social-link {
   @apply text-neutral-600 dark:text-neutral-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors;
+}
+
+.tilt-card {
+  border-radius: 32px;
+  padding: 1.25rem;
+  background: radial-gradient(circle at 10% 0%, rgba(248, 250, 252, 0.9), rgba(226, 232, 240, 0.95));
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.35),
+    0 0 0 1px rgba(148, 163, 184, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.orbit-ring {
+  position: absolute;
+  inset: -14%;
+  border-radius: 999px;
+  border-width: 2px;
+  border-style: solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(120deg, rgba(59, 130, 246, 0.7), rgba(236, 72, 153, 0.7));
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.orbit-ring-outer {
+  animation: orbitSpin 18s linear infinite;
+}
+
+.orbit-ring-inner {
+  inset: -4%;
+  border-image-source: linear-gradient(240deg, rgba(56, 189, 248, 0.9), rgba(37, 99, 235, 0.6));
+  animation: orbitSpinReverse 26s linear infinite;
+  opacity: 0.75;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tilt-card {
+    background: radial-gradient(circle at 10% 0%, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.9));
+    box-shadow:
+      0 28px 70px rgba(15, 23, 42, 0.85),
+      0 0 0 1px rgba(30, 64, 175, 0.5);
+  }
+}
+
+.tilt-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.45), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.tilt-card:hover::before {
+  opacity: 1;
+}
+
+.tilt-card:hover {
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.55),
+    0 10px 0 rgba(37, 99, 235, 0.85);
 }
 
 .cta-buttons .btn-primary,
@@ -342,6 +458,24 @@ onMounted(() => {
   .cta-buttons .btn-primary,
   .cta-buttons .btn-secondary {
     @apply text-sm px-4 py-2;
+  }
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotateX(18deg) rotateY(-14deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(18deg) rotateY(-14deg) rotateZ(360deg);
+  }
+}
+
+@keyframes orbitSpinReverse {
+  from {
+    transform: rotateX(-16deg) rotateY(10deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(-16deg) rotateY(10deg) rotateZ(-360deg);
   }
 }
 </style>

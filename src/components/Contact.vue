@@ -16,7 +16,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="contact" class="section py-20 bg-white dark:bg-neutral-800">
+  <section id="contact" class="section contact py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <!-- Section Header -->
@@ -156,7 +156,7 @@ onMounted(() => {
                     id="name"
                     name="name"
                     required
-                    class="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100"
+                  class="w-full px-4 py-3 rounded-xl border border-transparent bg-white/60 dark:bg-neutral-800/75 text-neutral-900 dark:text-neutral-100 shadow-md shadow-neutral-900/5 dark:shadow-black/30 focus:ring-2 focus:ring-primary-500 focus:border-primary-400 dark:focus:border-primary-500 focus:outline-none backdrop-blur-sm transition-all duration-200"
                     placeholder="Your name"
                   />
                 </div>
@@ -169,7 +169,7 @@ onMounted(() => {
                     id="email"
                     name="email"
                     required
-                    class="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100"
+                  class="w-full px-4 py-3 rounded-xl border border-transparent bg-white/60 dark:bg-neutral-800/75 text-neutral-900 dark:text-neutral-100 shadow-md shadow-neutral-900/5 dark:shadow-black/30 focus:ring-2 focus:ring-primary-500 focus:border-primary-400 dark:focus:border-primary-500 focus:outline-none backdrop-blur-sm transition-all duration-200"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -184,7 +184,7 @@ onMounted(() => {
                   id="subject"
                   name="subject"
                   required
-                  class="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100"
+                  class="w-full px-4 py-3 rounded-xl border border-transparent bg-white/60 dark:bg-neutral-800/75 text-neutral-900 dark:text-neutral-100 shadow-md shadow-neutral-900/5 dark:shadow-black/30 focus:ring-2 focus:ring-primary-500 focus:border-primary-400 dark:focus:border-primary-500 focus:outline-none backdrop-blur-sm transition-all duration-200"
                   placeholder="What's this about?"
                 />
               </div>
@@ -198,7 +198,7 @@ onMounted(() => {
                   name="message"
                   rows="6"
                   required
-                  class="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 resize-none"
+                  class="w-full px-4 py-3 rounded-2xl border border-transparent bg-white/60 dark:bg-neutral-800/75 text-neutral-900 dark:text-neutral-100 shadow-md shadow-neutral-900/5 dark:shadow-black/30 focus:ring-2 focus:ring-primary-500 focus:border-primary-400 dark:focus:border-primary-500 focus:outline-none resize-none backdrop-blur-sm transition-all duration-200"
                   placeholder="Tell me about your project or idea..."
                 ></textarea>
               </div>
@@ -270,8 +270,51 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.contact {
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+}
+
 .card {
-  @apply bg-white dark:bg-neutral-800 shadow-lg rounded-xl p-8 border border-neutral-200 dark:border-neutral-700;
+  @apply rounded-2xl p-8 border border-neutral-200/70 dark:border-neutral-700/70 relative overflow-hidden;
+  background: radial-gradient(circle at 0% 0%, rgba(248, 250, 252, 0.96), rgba(226, 232, 240, 0.98));
+  box-shadow:
+    0 22px 55px rgba(15, 23, 42, 0.32),
+    0 0 0 1px rgba(148, 163, 184, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background: radial-gradient(circle at 0% 0%, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 1));
+    box-shadow:
+      0 26px 70px rgba(15, 23, 42, 0.9),
+      0 0 0 1px rgba(30, 64, 175, 0.45);
+  }
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.22), transparent 55%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.55),
+    0 10px 0 rgba(37, 99, 235, 0.7);
+  border-color: rgba(59, 130, 246, 0.45);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .contact-item {
@@ -299,7 +342,64 @@ onMounted(() => {
 }
 
 .social-link {
-  @apply w-16 h-16 bg-neutral-100 dark:bg-neutral-700 rounded-full flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300;
+  @apply w-16 h-16 flex items-center justify-center transition-all duration-300 relative overflow-hidden;
+  border-radius: 18px;
+  color: rgb(71, 85, 105);
+  background: radial-gradient(circle at 10% 0%, #f9fafb 0%, #e5e7eb 45%, #9ca3af 100%);
+  box-shadow:
+    0 18px 35px rgba(15, 23, 42, 0.25),
+    0 3px 0 rgba(15, 23, 42, 0.35);
+  transform: translateY(0) translateZ(0);
+}
+
+.dark .social-link {
+  color: rgb(226, 232, 240);
+  background: radial-gradient(circle at 10% 0%, #020617 0%, #1d4ed8 40%, #0f172a 100%);
+  box-shadow:
+    0 20px 40px rgba(15, 23, 42, 0.85),
+    0 3px 0 rgba(15, 23, 42, 0.95);
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.7), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.social-link svg {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 6px rgba(15, 23, 42, 0.35));
+}
+
+.social-link:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 25px 45px rgba(15, 23, 42, 0.45),
+    0 6px 0 rgba(37, 99, 235, 0.9);
+  color: rgb(37, 99, 235);
+}
+
+.dark .social-link:hover {
+  color: rgb(191, 219, 254);
+  box-shadow:
+    0 28px 55px rgba(15, 23, 42, 0.95),
+    0 6px 0 rgba(59, 130, 246, 1);
+}
+
+.social-link:hover::before {
+  opacity: 1;
+}
+
+.social-link:active {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 25px rgba(15, 23, 42, 0.5),
+    0 2px 0 rgba(37, 99, 235, 0.95);
 }
 
 /* Animation classes */
