@@ -76,17 +76,13 @@ const resetTilt = () => {
 }
 
 onMounted(() => {
-  // Animasi hero sinematik saat load
-  animateHero()
+  // Animasi hero dinonaktifkan
+  // animateHero()
+  // floating('.shape-1', { y: 18, duration: 4 })
+  // floating('.shape-2', { y: 26, duration: 5 })
+  // magnetic('.hero .btn-primary')
 
-  // Floating animation halus untuk background shapes
-  floating('.shape-1', { y: 18, duration: 4 })
-  floating('.shape-2', { y: 26, duration: 5 })
-
-  // Efek magnetic untuk CTA utama (rasa 3D interaktif)
-  magnetic('.hero .btn-primary')
-
-  // Ensure image stays visible
+  // Pastikan gambar tetap tampil
   const img = document.querySelector('.profile-image')
   if (img) {
     img.style.opacity = '1'
@@ -143,8 +139,8 @@ onMounted(() => {
             <span class="block hero-name">Aziz</span>
           </h1>
           
-          <div class="role-container">
-            <h2 class="role text-2xl lg:text-3xl font-semibold text-primary-700 dark:text-primary-300 mb-4 drop-shadow-md">
+          <div class="role-container space-y-2">
+            <h2 class="role text-2xl lg:text-3xl font-semibold text-primary-700 dark:text-primary-300 drop-shadow-md">
               Fullstack Developer
             </h2>
             <div class="typing-animation text-xl text-slate-800 dark:text-slate-200 drop-shadow-sm">
@@ -244,6 +240,20 @@ onMounted(() => {
       0 4px 14px rgba(0, 0, 0, 0.55),
       0 1px 0 rgba(255, 255, 255, 0.1);
   }
+}
+
+/* Pastikan teks utama selalu terlihat dan tidak tersembunyi oleh animasi */
+.hero .main-title,
+.hero .main-title span,
+.hero .role,
+.hero .typing-animation,
+.hero .typing-text,
+.hero .description,
+.hero .cta-buttons {
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative;
+  z-index: 2;
 }
 
 .typing-animation {
