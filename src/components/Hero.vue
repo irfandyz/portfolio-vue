@@ -141,7 +141,7 @@ onMounted(() => {
           
           <div class="role-container space-y-2">
             <h2 class="role text-2xl lg:text-3xl font-semibold text-primary-700 dark:text-primary-300 drop-shadow-md">
-              Fullstack Developer
+              IT Developer
             </h2>
             <div class="typing-animation text-xl text-slate-800 dark:text-slate-200 drop-shadow-sm">
               <span class="typing-text">Crafting elegant, performant web applications</span>
