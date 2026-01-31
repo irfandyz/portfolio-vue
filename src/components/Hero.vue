@@ -13,7 +13,7 @@ const tiltX = ref(0)
 const tiltY = ref(0)
 
 // Use the correct path for Vite
-const imageSrc = '/profile-new.png'
+const imageSrc = '/profile.png'
 
 const handleImageLoad = () => {
   imageLoaded.value = true
